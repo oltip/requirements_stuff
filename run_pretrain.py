@@ -225,8 +225,8 @@ def main():
     optimizer = AdamW(params=optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=num_train_optimization_steps)
     # optimizer = Lamb(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
-    if args.model_path:
-        optimizer.load_state_dict(torch.load(args.model_path + "/optimizer.bin"))
+    #if args.model_path:
+    #    optimizer.load_state_dict(torch.load(args.model_path + "/optimizer.bin"))
     if args.fp16:
         try:
             from apex import amp
